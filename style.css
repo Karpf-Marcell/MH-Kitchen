@@ -207,7 +207,6 @@ nav .navLinks input:checked ~ .navBar {
 
 .contentPic {
     width: 100%;
-    animation: isImageMoving 4s ease-in-out infinite;
 }
 
 @keyframes isImageMoving {
@@ -324,6 +323,14 @@ nav .navLinks input:checked ~ .navBar {
         padding: 12px 20px;
         font-size: 18px;
     }
+
+    .picBox {
+        text-align: center;
+    }
+
+    .contentPic {
+        width: 80%;
+    }
     
     .footerSection {
         gap: 35px;
@@ -412,6 +419,11 @@ nav .navLinks input:checked ~ .navBar {
         overflow: hidden;
         z-index: 1;
         transition: ease-in-out 0.3s;
+    }
+
+    .contentPic {
+        width: 100%;
+        animation: isImageMoving 4s ease-in-out infinite;
     }
 
     .contentMenuLink::before, .contentMenuLink::after {
