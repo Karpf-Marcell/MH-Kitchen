@@ -16,6 +16,10 @@
     --white: #fffbe0;
 }
 
+html.active {
+    overflow: hidden;
+}
+
 body {
     background: var(--white);
 }
@@ -30,7 +34,6 @@ body {
     padding: 0 7%;
     box-shadow: 0 1px 6px rgba(0,0,0,0.8);
     background: var(--black);
-
 }
 
 .logo {
@@ -75,21 +78,23 @@ body {
 }
 
 .navItems {
+    width: 100%;
+    height: 60px;
+    border-bottom: 2px solid var(--gray);
+}
+
+.navItems a {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 60px;
-    border-bottom: 2px solid var(--gray);
+    height: 100%;
+    color: var(--yellow);
+    text-transform: uppercase;
     cursor: pointer;
 }
 
-.navItems a {
-    color: var(--yellow);
-    text-transform: uppercase;
-}
-
-.socialIcon {
+.socialIcon a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -98,11 +103,8 @@ body {
     border-radius: 50%;
     border: 2px solid var(--yellow);
     cursor: pointer;
-}
-
-.socialIcon a {
     color: var(--yellow);
-    
+    transition: ease-in-out 0.3s;
 }
 
 .toggleBox {
@@ -205,6 +207,19 @@ nav .navLinks input:checked ~ .navBar {
 
 .contentPic {
     width: 100%;
+    animation: isImageMoving 4s ease-in-out infinite;
+}
+
+@keyframes isImageMoving {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-25px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
 .footerSection {
@@ -235,4 +250,230 @@ nav .navLinks input:checked ~ .navBar {
 
 .footerTxt, .footerTxt a {
     color: rgba(255,255,255,0.3);
+}
+
+@media (min-width: 768px) {
+
+    .toggleBox, .hamburgerToggle {
+        display: none;
+    }
+
+    .navSection {
+        padding: 0 5%;
+    }
+
+    .navBar {
+        position: static;
+        justify-content: space-between;
+        flex-direction: row;
+        gap: 20px;
+        padding-top: 0;
+        z-index: 1;
+        width: auto;
+        right: auto;
+        height: auto;
+        background: transparent;
+    }
+    
+    .socials {
+        padding-top: 0;
+        gap: 15px;
+    }
+    
+    .navBar::before {
+        width: 0;
+        height: 0;
+    }
+
+    .navList {
+        display: flex;
+    }
+    
+    .navItems {
+        width: auto;
+        height: auto;
+        border-bottom: none;
+    }
+
+    .navItems a {
+        padding: 10px;
+        font-size: 18px;
+    }
+    
+    .contentSection {
+        padding: 50px;
+    }
+    
+    .contentBox {
+        gap: 50px;
+    }
+    
+    .textBox {
+        gap: 35px;
+    }
+
+    .contentTitle {
+        font-size: 36px;
+    }
+
+    .contentDesc {
+        font-size: 18px;
+    }
+    
+    .contentMenuLink {
+        padding: 12px 20px;
+        font-size: 18px;
+    }
+    
+    .footerSection {
+        gap: 35px;
+        padding: 50px;
+    }
+    
+    .footerTitle {
+        padding-bottom: 15px;
+    }
+    
+    .footerTitle::before {
+        bottom: 12px;
+    }
+
+}
+
+@media (min-width: 992px) {
+
+    .navSection {
+        padding: 0 5%;
+    }
+
+    .navBar {
+        gap: 30px;
+    }
+
+    .navItems a {
+        position: relative;
+        font-size: 20px;
+        padding: 10px 15px;
+    }
+
+    .navItems a::before {
+        content: "";
+        position: absolute;
+        bottom: 10px;
+        left: 15px;
+        width: 0;
+        height: 3px;
+        border-radius: 10px;
+        background: var(--white);
+        transition: 0.3s;
+    }
+
+    .navItems a:hover:before {
+        width: 40px;
+    }
+
+    .fa-brands {
+        transition: ease-in-out 0.3s;
+    }
+
+    .socialIcon a:hover {
+        background: var(--yellow);
+        box-shadow: 0 0 5px 1px var(--yellow);
+    }
+
+    .socialIcon a:hover .fa-brands {
+        color: var(--black);
+    }
+    
+    .contentBox {
+        justify-content: space-between;
+        flex-direction: row;
+    }
+    
+    .textBox {
+        justify-content: center;
+        width: 50%;
+        gap: 30px;
+    }
+
+    .contentTitle {
+        font-size: 40px;
+    }
+    
+    .contentDesc {
+        font-size: 20px;
+    }
+    
+    .contentMenuLink {
+        position: relative;
+        padding: 16px 24px;
+        border-radius: 30px;
+        font-size: 20px;
+        overflow: hidden;
+        z-index: 1;
+        transition: ease-in-out 0.3s;
+    }
+
+    .contentMenuLink::before, .contentMenuLink::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 100%;
+        background: var(--yellow);
+        z-index: -1;
+        transition: ease-in-out .3s;
+    }
+
+    .contentMenuLink::before {
+        top: 0;
+        left: -10%;
+        transform: skew(-45deg);
+    }
+
+    .contentMenuLink::after {
+        bottom: 0;
+        right: -10%;
+        transform: skew(-45deg);
+    }
+
+    .contentMenuLink:hover:before, .contentMenuLink:hover:after {
+        width: 65%;
+    }
+
+    .contentMenuLink:hover {
+        color: var(--black);
+    }
+
+    .footerSection {
+        flex-direction: row;
+        gap: 100px;
+        padding: 40px;
+    }
+    
+}
+
+@media (min-width: 1200px) {
+
+    .navBar {
+        gap: 50px;
+    }
+
+    .contentSection {
+        padding: 60px 5%;
+    }
+    
+    .textBox {
+        width: 50%;
+        gap: 30px;
+    }
+
+    .contentTitle {
+        font-size: 44px;
+        line-height: 60px;
+    }
+
+    .footerSection {
+        gap: 120px;
+    }
+
 }
