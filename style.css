@@ -16,6 +16,10 @@
     --white: #fffbe0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 html.active {
     overflow: hidden;
 }
@@ -90,6 +94,7 @@ body {
     width: 100%;
     height: 100%;
     color: var(--yellow);
+    font-weight: 600;
     text-transform: uppercase;
     cursor: pointer;
 }
@@ -251,6 +256,120 @@ nav .navLinks input:checked ~ .navBar {
     color: rgba(255,255,255,0.3);
 }
 
+/* -- MENU HTML -- */
+
+.menuSection {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    padding: 30px;
+}
+
+.chooseCategory {
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    gap: 30px;
+    width: 100%;
+    height: 50px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    background: var(--gray);
+    border-radius: 20px;
+}
+
+.chooseCategory::-webkit-scrollbar {
+    display: none;
+}
+
+.menuItems a {
+    color: var(--white);
+    width: auto;
+    white-space: nowrap;
+}
+
+.chooseMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.chooseMenuSection {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menuItemsTitle {
+    padding: 8px 0;
+    background: var(--black);
+    color: var(--yellow);
+    text-align: center;
+    border-radius: 8px;
+}
+
+.menuContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.menuBox {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    background: var(--black);
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.menuBox::before {
+    content: "";
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: var(--gray);
+    right: -80px;
+    transition: 0.3s;
+}
+
+.menuBoxItems {
+    display: grid;
+    gap: 5px;
+    height: 100%;
+}
+
+.menuBoxItemsTitle {
+    align-self: center;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.menuBoxItemsDesc {
+    color: rgba(255,255,255,0.3);
+}
+
+.price {
+    align-self: center;
+    color: var(--yellow);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.menuPic {
+    position: relative;
+    right: -15px;
+    width: 100px;
+    z-index: 2;
+}
+
 @media (min-width: 768px) {
 
     .toggleBox, .hamburgerToggle {
@@ -320,8 +439,9 @@ nav .navLinks input:checked ~ .navBar {
     }
     
     .contentMenuLink {
-        padding: 12px 20px;
+        padding: 14px 22px;
         font-size: 18px;
+        font-weight: 600;
     }
 
     .picBox {
@@ -343,6 +463,12 @@ nav .navLinks input:checked ~ .navBar {
     
     .footerTitle::before {
         bottom: 12px;
+    }
+
+    /* -- MENU HTML -- */
+
+    .menuBox {
+        width: calc(50% - 20px);
     }
 
 }
@@ -413,7 +539,7 @@ nav .navLinks input:checked ~ .navBar {
     
     .contentMenuLink {
         position: relative;
-        padding: 16px 24px;
+        padding: 18px 26px;
         border-radius: 30px;
         font-size: 20px;
         overflow: hidden;
@@ -461,6 +587,18 @@ nav .navLinks input:checked ~ .navBar {
         gap: 100px;
         padding: 40px;
     }
+
+    /* -- MENU HTML -- */
+
+    .menuBox {
+        width: calc(33% - 20px);
+    }
+
+    .menuBox:hover:before {
+        width: 200px;
+        height: 200px;
+    }
+
     
 }
 
@@ -471,7 +609,7 @@ nav .navLinks input:checked ~ .navBar {
     }
 
     .contentSection {
-        padding: 60px 5%;
+        padding: 100px 5%;
     }
     
     .textBox {
@@ -486,6 +624,70 @@ nav .navLinks input:checked ~ .navBar {
 
     .footerSection {
         gap: 120px;
+    }
+
+    /* -- MENU HTML -- */
+
+    .menuSection {
+        gap: 40px;
+        padding: 40px;
+    }
+
+    .chooseCategory {
+        justify-content: center;
+    }
+
+    .chooseMenu {
+        gap: 40px;
+    }
+
+    .chooseMenuSection {
+        gap: 30px;
+    }
+
+    .menuItemsTitle {
+        padding: 10px 0;
+        border-radius: 10px;
+    }
+
+    .menuContainer {
+        gap: 30px;
+    }
+
+    .menuBox {
+        padding: 40px 20px;
+        width: calc(33% - 20px);
+    }
+
+    .menuBoxItems {
+        gap: 10px;
+    }
+
+    .menuBoxItemsTitle {
+        font-size: 24px;
+    }
+
+    .menuBoxItemsDesc {
+        font-size: 18px;
+    }
+
+    .price {
+        font-size: 20px;
+    }
+
+    .menuPic {
+        width: 130px;
+    }
+
+    .menuBox::before {
+        width: 180px;
+        height: 180px;
+        right: -90px;
+    }
+
+    .menuBox:hover:before {
+        width: 240px;
+        height: 240px;
     }
 
 }
