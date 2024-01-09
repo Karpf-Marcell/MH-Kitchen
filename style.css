@@ -367,6 +367,7 @@ nav .navLinks input:checked ~ .navBar {
     position: relative;
     right: -15px;
     width: 100px;
+    height: 100px;
     z-index: 2;
 }
 
@@ -677,6 +678,7 @@ nav .navLinks input:checked ~ .navBar {
 
     .menuPic {
         width: 130px;
+        height: 130px;
     }
 
     .menuBox::before {
